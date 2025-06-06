@@ -1,0 +1,16 @@
+/* 시작배경 출처 */
+/* https://pixabay.com/ko/illustrations/%EC%88%B2-%EB%82%98%EB%AC%B4-%EC%95%88%EA%B0%9C-%EC%8B%A4%EB%A3%A8%EC%97%A3-%ED%83%9C%EC%96%91-5855196/ */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("./image/start_background.jpg");
+    background-size: cover;
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+#canvas {
+    width: 100%;
+    height: 100%;
+}

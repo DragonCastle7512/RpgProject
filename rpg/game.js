@@ -466,6 +466,8 @@ let monster_images = [
     ]
 ]
 //load
+const profile = new Image();
+profile.src = "./image/profile.jpg";
 let img = new Array();
 for(i = 0; i < images.length; i++){
     img[i] = new Image();
@@ -1610,7 +1612,7 @@ class Jellyfish extends Monster {
     }
     ability() {
         if(this.hit) {
-            zone_list.push(new PoisonZone(character.x, character.y, PoisonZone_width, PoisonZone_height));
+            zone_list.push(new PoisonZone(this.x, this.y, PoisonZone_width, PoisonZone_height));
         }
     }
 }
@@ -2071,7 +2073,7 @@ document.addEventListener("mousemove", (event) => {
 let enforce_skill = [0, 0, 0, 0, 0, 0],
     enforce_skill_limit = [0, 0, 0, 0, 0, 0],
     enforce_skill_length = [6, 9, 9, 9];
-let stat_point = 2, skill_point = 9;
+let stat_point = 1, skill_point = 1;
 let space_cooldown_reduce = 0, space_distance_increase = 0, space_speed_up = false, space_speed_up_timer = 0, space_speed_up_apply = false, space_mana_recovery = 0, space_back = false, space_back_timer = 0, space_back_ability = false, back_point_x, back_point_y,
     q_addition_damage = 0, q_cooldown_reduce = 0, q_penetrate = false, q_mana_reduce = 0, q_addition_speed = 0, q_fear = false, q_mana_recovery = 0, q_harvestring = false, harvestring_stack = 0, harvestring_damage = 0,
     e_mana_reduce = 0, e_addition_hp_recovery = 0, e_hp_steal = false, e_cooldown_reduce = 0, e_soul = false, e_speed_up = false, e_soul_upgrade = false, e_speed_up_apply = false, e_speed_up_timer = 0, soul_timer = 0, soul_count = 0, soul_spawn = false, soul_start_count = 0, e_soul_damage = 0,
@@ -2858,10 +2860,9 @@ function main_timer() {
                 break;
         }
         //< Main UI >
-        //임시 프로필
         ctx.fillStyle = "white";
         ctx.fillRect(Condition_ui_x+20, Condition_ui_y, 100, 150);
-        ctx.drawImage(img[4], 0, 0, img[4].width, img[4].height/1.5, Condition_ui_x+30, Condition_ui_y+35, Character_width*0.9, Character_height*0.7);
+        ctx.drawImage(profile, Condition_ui_x+20, Condition_ui_y+20, 105, 105);
         hp_bar.progress = (character.hp >= 0) ? character.hp : 0;
         hp_bar.draw();
         mana_bar.progress = character.mana;
